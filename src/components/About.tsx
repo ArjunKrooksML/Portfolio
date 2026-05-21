@@ -33,6 +33,8 @@ const About: React.FC = () => {
               <img
                 src={secondary}
                 alt="Secondary Photo"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>

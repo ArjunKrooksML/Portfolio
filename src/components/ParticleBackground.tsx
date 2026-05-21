@@ -9,6 +9,9 @@ interface Particle {
   opacity: number;
 }
 
+const MAX_PARTICLES = 80;
+const CONNECTION_DISTANCE = 100;
+
 const ParticleBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
@@ -24,12 +27,16 @@ const ParticleBackground: React.FC = () => {
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      createParticles();
     };
 
     const createParticles = () => {
       particlesRef.current = [];
-      const particleCount = Math.floor((canvas.width * canvas.height) / 10000);
-      
+      const particleCount = Math.min(
+        Math.floor((canvas.width * canvas.height) / 15000),
+        MAX_PARTICLES
+      );
+
       for (let i = 0; i < particleCount; i++) {
         particlesRef.current.push({
           x: Math.random() * canvas.width,
@@ -45,7 +52,11 @@ const ParticleBackground: React.FC = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      particlesRef.current.forEach((particle, index) => {
+      // Draw particles — set shadow once before the loop, not per-particle
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = 'rgba(99, 102, 241, 0.4)';
+
+      particlesRef.current.forEach((particle) => {
         particle.x += particle.vx;
         particle.y += particle.vy;
 
@@ -56,42 +67,38 @@ const ParticleBackground: React.FC = () => {
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(99, 102, 241, ${particle.opacity})`;
         ctx.fill();
-        
-        // Add glow effect
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = `rgba(99, 102, 241, ${particle.opacity * 0.5})`;
-        ctx.fill();
+      });
 
-        // Draw connections
-        particlesRef.current.slice(index + 1).forEach((otherParticle) => {
-          const dx = particle.x - otherParticle.x;
-          const dy = particle.y - otherParticle.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
+      // Draw connections without shadow to avoid GPU overdraw
+      ctx.shadowBlur = 0;
 
-          if (distance < 120) {
+      particlesRef.current.forEach((particle, index) => {
+        for (let j = index + 1; j < particlesRef.current.length; j++) {
+          const other = particlesRef.current[j];
+          const dx = particle.x - other.x;
+          const dy = particle.y - other.y;
+          // Use squared distance to avoid sqrt until we know it's close
+          const distSq = dx * dx + dy * dy;
+
+          if (distSq < CONNECTION_DISTANCE * CONNECTION_DISTANCE) {
+            const distance = Math.sqrt(distSq);
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = `rgba(99, 102, 241, ${0.2 * (1 - distance / 120)})`;
+            ctx.lineTo(other.x, other.y);
+            ctx.strokeStyle = `rgba(99, 102, 241, ${0.2 * (1 - distance / CONNECTION_DISTANCE)})`;
             ctx.lineWidth = 1;
-            ctx.shadowBlur = 5;
-            ctx.shadowColor = `rgba(99, 102, 241, ${0.1 * (1 - distance / 120)})`;
             ctx.stroke();
           }
-        });
+        }
       });
 
       animationRef.current = requestAnimationFrame(animate);
     };
 
     resizeCanvas();
-    createParticles();
     animate();
 
-    window.addEventListener('resize', () => {
-      resizeCanvas();
-      createParticles();
-    });
+    window.addEventListener('resize', resizeCanvas);
 
     return () => {
       if (animationRef.current) {
