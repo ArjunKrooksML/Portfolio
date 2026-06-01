@@ -116,21 +116,22 @@ export const projectsData: Project[] = [
   },
   {
     id: 3,
-    title: 'Med-Fusion - Multi-Modal Medical Inference',
+    title: 'SVAAS Employee Tracking System',
     description:
-      'Full-stack medical inference platform supporting MRI, dermatology, cardiac, liver, and renal prediction workflows with ensemble model classification and clinical recommendations.',
+      'Production HR and payroll platform with dual portals (admin & employee) actively used by SVAAS Inframax Solutions. Features JWT auth with refresh token rotation, 4-tier RBAC, GPS attendance, automated PDF payslips, Kanban task board, and WhatsApp alerts.',
     image:
-      'https://images.pexels.com/photos/4226119/pexels-photo-4226119.jpeg?auto=compress&cs=tinysrgb&w=800',
-    category: 'computer-vision',
+      '/svaashr.png',
+    category: 'full-stack',
     technologies: [
       'React',
-      'Flask',
-      'PyTorch',
-      'CNN',
-      'SVM',
-      'OpenCV',
+      'TypeScript',
+      'FastAPI',
+      'PostgreSQL',
+      'Supabase',
+      'Twilio',
+      'dnd-kit',
     ],
-    githubUrl: 'https://github.com/ArjunKrooksML',
+    liveUrl: 'https://admin.svaasinfra.in',
   },
 ];
 
