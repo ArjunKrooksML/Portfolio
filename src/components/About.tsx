@@ -47,22 +47,33 @@ const About: React.FC = () => {
               <u>A Passionate AI & Machine Learning Engineer</u>
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-              I'm a dedicated AI and Machine Learning graduate with a strong academic background and hands-on experience in building pragmatic projects. I am extremely curious about the upcoming trends in the AI domain, currently working in the Corporate as an AI/ML Developer, I seem to be in awe of what's possible.
+              I'm an AI Engineer specializing in production multi-agent and RAG systems, experienced across the full path — agent orchestration with LangGraph and CrewAI, LLM fine-tuning, and deployment as FastAPI services on AWS. I most recently worked as an AI/ML Developer at TechAhead, and I'm now pursuing a Master's in Data Science at Stony Brook University.
             </p>
             <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
               I'm driven by curiosity and a commitment to pushing the boundaries of what's possible with AI. My approach combines rigorous theoretical understanding with practical implementation skills, allowing me to develop solutions that address real-world challenges.
             </p>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-6 mb-8">
               <div>
                 <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Education</h4>
-                <p className="text-gray-700 dark:text-gray-300"><b>B.Tech in Computer Science and Engineering, AI and ML</b></p>
-                
+                <p className="text-gray-700 dark:text-gray-300"><b>M.S. in Data Science</b><br />Stony Brook University</p>
               </div>
               <div>
                 <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Location</h4>
-                <p className="text-gray-700 dark:text-gray-300"><b>Delhi NCR, India</b></p>
-                
+                <p className="text-gray-700 dark:text-gray-300"><b>New York City, NY</b></p>
               </div>
+            </div>
+            <div>
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Certifications</h4>
+              <ul className="space-y-1">
+                <li className="flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-indigo-600 dark:bg-indigo-400 rounded-full mt-1.5 mr-2"></span>
+                  <span className="text-gray-700 dark:text-gray-300">IBM RAG and Agentic AI — IBM</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-indigo-600 dark:bg-indigo-400 rounded-full mt-1.5 mr-2"></span>
+                  <span className="text-gray-700 dark:text-gray-300">Microsoft Certified: Azure AI Fundamentals</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

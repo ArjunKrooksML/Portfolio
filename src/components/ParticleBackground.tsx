@@ -24,6 +24,9 @@ const ParticleBackground: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -96,14 +99,37 @@ const ParticleBackground: React.FC = () => {
     };
 
     resizeCanvas();
-    animate();
+
+    const startAnimating = () => {
+      if (animationRef.current) return;
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    const stopAnimating = () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = undefined;
+      }
+    };
+
+    // Only run the O(n^2) particle loop while the hero section is actually on screen
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          startAnimating();
+        } else {
+          stopAnimating();
+        }
+      },
+      { threshold: 0 }
+    );
+    visibilityObserver.observe(canvas);
 
     window.addEventListener('resize', resizeCanvas);
 
     return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
+      stopAnimating();
+      visibilityObserver.disconnect();
       window.removeEventListener('resize', resizeCanvas);
     };
   }, []);

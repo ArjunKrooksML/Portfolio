@@ -59,7 +59,7 @@ const Contact: React.FC = () => {
                     Location
                   </h4>
                   <p className="mt-1 text-gray-600 dark:text-gray-300">
-                    Delhi NCR, India
+                    New York City, NY
                   </p>
                 </div>
               </div>

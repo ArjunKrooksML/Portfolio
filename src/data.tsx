@@ -83,7 +83,7 @@ export const projectsData: Project[] = [
     id: 1,
     title: 'DataQuery: Text-to-SQL Visual Analytics',
     description:
-      'Natural language to SQL system that delivers governed dashboards, role-based access, and analytical insights for business teams.',
+      'Fine-tuned Qwen 8B with quantization on the Spider dataset (5,000+ SQL-NLU pairs), improving complex query accuracy by 10%. Next.js and FastAPI application with multi-tenant architecture, RBAC, and automated Chart.js dashboards for efficient data exploration.',
     image:
       'https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'agentic-ai',
@@ -99,26 +99,19 @@ export const projectsData: Project[] = [
   },
   {
     id: 2,
-    title: 'Restaurant RAG Recommender Agent',
+    title: 'Blood Report Analyser: Agentic Reports Hub',
     description:
-      'LLM concierge that curates Bengaluru dining recommendations using retrieval augmented generation and conversational planning.',
+      "Agentic medical report analysis pipeline using LangGraph's Send API for parallel panel extraction, with a fully agentic ReAct pattern-recognition engine (GPT-4o) that surfaces multi-marker clinical syndromes. Includes a clarification interrupt system for mid-graph human-in-the-loop pauses on unreadable reports.",
     image:
-      'https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=800',
-    category: 'rag-system',
-    technologies: [
-      'Llama 3.1 8B',
-      'LangChain',
-      'ChromaDB',
-      'FastAPI',
-      'MiniLM Embeddings',
-    ],
-    githubUrl: 'https://github.com/ArjunKrooksML/Restaurant_Recommender-Llama3.1-8B-',
+      'https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=800',
+    category: 'agentic-ai',
+    technologies: ['LangGraph', 'GPT-4o', 'ReAct', 'Send API', 'Python'],
   },
   {
     id: 3,
     title: 'SVAAS Employee Tracking System',
     description:
-      'Production HR and payroll platform with dual portals (admin & employee) actively used by SVAAS Inframax Solutions. Features JWT auth with refresh token rotation, 4-tier RBAC, GPS attendance, automated PDF payslips, Kanban task board, and WhatsApp alerts.',
+      'Production HR and operations platform (React/TypeScript, FastAPI, PostgreSQL/Supabase) across two role-scoped portals covering attendance, payroll, tasks, leaves, expenses, procurement, and inventory for a live company. Features JWT auth with refresh-token rotation, 4-tier RBAC, a payroll engine integrating GPS attendance and salary advances, a real-time inventory ledger with server-side validation, an OpenAI chatbot with role-based tool access, and WhatsApp/email notifications.',
     image:
       '/svaashr.png',
     category: 'full-stack',
@@ -128,8 +121,8 @@ export const projectsData: Project[] = [
       'FastAPI',
       'PostgreSQL',
       'Supabase',
+      'OpenAI API',
       'Twilio',
-      'dnd-kit',
     ],
     liveUrl: 'https://admin.svaasinfra.in',
   },
@@ -137,6 +130,12 @@ export const projectsData: Project[] = [
 
 // Experience Data
 export const experienceData: Experience[] = [
+  {
+    period: 'Fall 2026 - 2028',
+    role: 'Masters in Data Science',
+    organization: 'Stony Brook University',
+    description: 'Graduate studies in Data Science, building on production AI/ML engineering experience from industry roles at TechAhead and SVAAS Inframax Solutions.',
+  },
   {
     period: 'August 2025 - January 2026',
     role: 'AI/ML Developer',

@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "PowerShell($files = Get-ChildItem \"C:\\\\Users\\\\arjun\\\\OneDrive\\\\Documents\\\\portfolio\\\\src\\\\assets\\\\\" -Recurse; foreach \\($f in $files\\) { Write-Host \"$\\($f.Name\\): $\\([math]::Round\\($f.Length / 1KB, 1\\)\\) KB\" })"
+      "PowerShell($files = Get-ChildItem \"C:\\\\Users\\\\arjun\\\\OneDrive\\\\Documents\\\\portfolio\\\\src\\\\assets\\\\\" -Recurse; foreach \\($f in $files\\) { Write-Host \"$\\($f.Name\\): $\\([math]::Round\\($f.Length / 1KB, 1\\)\\) KB\" })",
+      "Bash(npx tsc *)",
+      "Bash(npx vite *)"
     ]
   }
 }
