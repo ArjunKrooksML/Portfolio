@@ -8,7 +8,7 @@ import myProfilePic from '../assets/portfolio.jpg';
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { animate } = useAnimation();
-  
+
   const typingText = useTypingAnimation({
     texts: [
       'AI/ML Engineer',
@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.15),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_40%,rgba(147,51,234,0.1),transparent_50%)]" />
       </div>
-      
+
       {/* Particle Background */}
       <ParticleBackground />
 
@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-lg">
-              A critical thinker, striving to deliver as per the ever evolving Industry norms.
+              A critical thinker, striving to deliver as per the evolving Industry norms.
             </p>
             <div className="flex flex-wrap gap-6">
               <a

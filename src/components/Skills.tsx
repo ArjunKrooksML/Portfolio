@@ -64,10 +64,14 @@ const Skills: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               'Python',
+              'JavaScript',
+              'React',
               'LangChain',
               'CrewAI',
               'LangGraph',
               'FastAPI',
+              'PostgreSQL',
+              'Docker',
               'Hugging Face',
               'OpenAI',
               'AWS'
