@@ -3,7 +3,10 @@
     "allow": [
       "PowerShell($files = Get-ChildItem \"C:\\\\Users\\\\arjun\\\\OneDrive\\\\Documents\\\\portfolio\\\\src\\\\assets\\\\\" -Recurse; foreach \\($f in $files\\) { Write-Host \"$\\($f.Name\\): $\\([math]::Round\\($f.Length / 1KB, 1\\)\\) KB\" })",
       "Bash(npx tsc *)",
-      "Bash(npx vite *)"
+      "Bash(npx vite *)",
+      "Bash(npm install *)",
+      "Bash(node optimize-svaashr.mjs)",
+      "Bash(git stash *)"
     ]
   }
 }

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Menu, X, Moon, Sun, FileText } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
+
+const RESUME_URL = '/Resume_Arjunaa_Seshadri_AI_ML_Engineer_2026-08.pdf';
 
 type HeaderProps = {
   isScrolled: boolean;
@@ -65,6 +67,16 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
                 {item.name}
               </a>
             ))}
+            <a
+              href={RESUME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 hover-lift glow-primary focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              aria-label="View or download resume (opens in a new tab)"
+            >
+              <FileText className="h-4 w-4" />
+              Resume
+            </a>
             <button
               onClick={toggleTheme}
               className="p-3 rounded-xl glass dark:glass-dark hover:scale-110 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 glow-primary"
@@ -128,6 +140,17 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
                 {item.name}
               </a>
             ))}
+            <a
+              href={RESUME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl"
+              onClick={() => setIsMenuOpen(false)}
+              aria-label="View or download resume (opens in a new tab)"
+            >
+              <FileText className="h-5 w-5" />
+              Resume
+            </a>
           </nav>
         </div>
       )}
