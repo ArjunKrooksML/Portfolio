@@ -47,7 +47,7 @@ const About: React.FC = () => {
               <u>A Passionate AI & Machine Learning Engineer</u>
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-              I'm an AI Engineer specializing in production multi-agent and RAG systems, experienced across the full path — agent orchestration with LangGraph and CrewAI, LLM fine-tuning, and deployment as FastAPI services on AWS. I most recently worked as an AI/ML Developer at TechAhead, and I'm now pursuing a Master's in Data Science at Stony Brook University.
+              I'm an LLM/AI Engineer with production experience shipping multi-agent systems, RAG pipelines, and fine-tuned models using LoRA/PEFT. My depth spans agentic orchestration with LangGraph and CrewAI, model fine-tuning and quantization with Qwen and Unsloth, and deployment as FastAPI services on AWS. I most recently worked as an AI/ML Developer at TechAhead, and I'm now pursuing a Master's in Data Science at Stony Brook University.
             </p>
             <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
               I'm driven by curiosity and a commitment to pushing the boundaries of what's possible with AI. My approach combines rigorous theoretical understanding with practical implementation skills, allowing me to develop solutions that address real-world challenges.

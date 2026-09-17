@@ -8,8 +8,8 @@ export const skillsData: Skill[] = [
     title: 'LLM Engineering & Fine-Tuning',
     icon: <Brain className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />,
     skills: [
-      'Fine-tuned Qwen 8B (Unsloth, quantized) on Spider & SQL-NLU datasets, lifting Text-to-SQL accuracy by 10%',
-      'Evaluation & hallucination testing with RAGAS and G-Eval before production rollout',
+      'Fine-tuned Qwen 8B (LoRA/PEFT via Unsloth, quantized) on Spider & SQL-NLU datasets, lifting Text-to-SQL accuracy by 10%',
+      'Evaluation & hallucination testing with RAGAS, G-Eval, and LLM-as-a-Judge frameworks before production rollout',
       'Low-latency model serving with vLLM, Ollama, Hugging Face & Azure ML endpoints',
       'LLM-based guardrails and query validation, improving correctness by 15-20%',
       'Prompt design, structured outputs & few-shot optimisation across GPT-4o, Qwen & Mistral',
@@ -72,7 +72,7 @@ export const skillsData: Skill[] = [
       'Git-based version control and Jira-driven sprint workflows',
       'Frontend/backend hosting via Vercel, Render & Firebase',
       'Environment automation, secrets management & cost-aware infrastructure design',
-      'Production-ready service architecture for deployed AI systems',
+      'Load testing & observability with Locust, sustaining 120 req/s at 180ms p95 under production traffic',
     ],
   },
 ];
@@ -83,7 +83,7 @@ export const projectsData: Project[] = [
     id: 1,
     title: 'DataQuery: Text-to-SQL Visual Analytics',
     description:
-      'Fine-tuned Qwen 8B with quantization on the Spider dataset (5,000+ SQL-NLU pairs), improving complex query accuracy by 10%. Next.js and FastAPI application with multi-tenant architecture, RBAC, and automated Chart.js dashboards for efficient data exploration.',
+      'Fine-tuned and quantized Qwen 8B on the Spider dataset (5,000+ NL-SQL pairs), lifting execution accuracy on multi-join queries by 10% over base. Multi-tenant Next.js and FastAPI stack with row-level RBAC preventing cross-tenant data leakage, plus dynamic Chart.js dashboard generation from natural-language prompts for non-technical self-serve data exploration.',
     image:
       'https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'agentic-ai',
@@ -101,7 +101,7 @@ export const projectsData: Project[] = [
     id: 2,
     title: 'Blood Report Analyser: Agentic Reports Hub',
     description:
-      "Agentic medical report analysis pipeline using LangGraph's Send API for parallel panel extraction, with a fully agentic ReAct pattern-recognition engine (GPT-4o) that surfaces multi-marker clinical syndromes. Includes a clarification interrupt system for mid-graph human-in-the-loop pauses on unreadable reports.",
+      "Engineered a 7-node LangGraph pipeline with parallel per-panel extraction (Send API) and a self-critique/retry loop, cutting end-to-end report processing latency by around 50%. A GPT-4o ReAct agent cross-correlates markers across panels to surface multi-marker clinical syndromes invisible to single-panel review, backed by a longitudinal trend engine that projects threshold-crossing dates from patient history and a human-in-the-loop interrupt for unstructured data.",
     image:
       'https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'agentic-ai',
@@ -131,31 +131,21 @@ export const projectsData: Project[] = [
 // Experience Data
 export const experienceData: Experience[] = [
   {
-    period: 'Fall 2026 - 2028',
+    period: 'August 2026 - Expected 2028',
     role: 'Masters in Data Science',
     organization: 'Stony Brook University',
     description: 'Graduate studies in Data Science, building on production AI/ML engineering experience from industry roles at TechAhead and SVAAS Inframax Solutions.',
   },
   {
-    period: 'August 2025 - January 2026',
-    role: 'AI/ML Developer',
+    period: 'July 2025 - January 2026',
+    role: 'AI/ML Developer (promoted from AI Engineer Intern)',
     organization: 'TechAhead',
-    description: 'Converted from intern to full-time AI/ML Developer by delivering production-ready AI microservices.',
+    description: 'Promoted from intern to full-time AI/ML Developer after shipping production multi-agent orchestration, fine-tuning, and RAG infrastructure end-to-end.',
     achievements: [
-      'Architected multi-agent CrewAI and LangGraph workflow with Redis caching, improving event scheduling efficiency by 40%',
-      'Deployed Dockerized FastAPI microservices on AWS EC2 with Nginx reverse proxy, SystemD services, and CloudWatch monitoring',
-      'Built a model-first agentic system using Amazon Strands SDK for healthcare and fitness workflows',
-    ],
-  },
-  {
-    period: 'July 2025 - August 2025',
-    role: 'AI Engineer Intern',
-    organization: 'TechAhead',
-    description: 'Worked on Generative and Agentic solutions for data analysis and visualization.',
-    achievements: [
-      'Fine-tuned Qwen 8B using Unsloth on XlangAI SQL-NLU dataset, improving text-to-SQL accuracy by 10% with optimised Postgres integration',
-      'Implemented LLM-based SQL query validation with rule constraints, improving correctness by 15-20% and reducing API calls via Redis caching',
-      'Engineered multi-agent orchestration workflow for a low/no-code automation platform using LangChain tools and embeddings',
+      'Architected multi-agent event-scheduling workflows in CrewAI, LangGraph, and Redis, cutting scheduling turnaround 40% against the manual baseline',
+      'Shipped three Dockerized FastAPI microservices to AWS EC2 — video annotation, embedding generation with Qdrant storage, and the core chatbot — sustaining 120 req/s at 180ms p95 under Locust load testing',
+      'Cut invalid Text-to-SQL generations 15-20% with an LLM-as-a-Judge evaluation framework, via guardrail-based query validation and Redis caching to remove redundant model API calls',
+      'Rebuilt healthcare and fitness advisory flows as tool-calling agents on Amazon Strands and the OpenAI Agents SDK',
     ],
   },
   {
@@ -164,19 +154,20 @@ export const experienceData: Experience[] = [
     organization: 'SVAAS Inframax Solutions',
     description: 'Built internal AI automation and safety compliance solutions across scheduling, document intelligence, and computer vision.',
     achievements: [
-      'Developed AI scheduling assistant using Mistral 7B with Google Calendar API and OAuth2 for automated event management',
-      'Built OCR and LLM summarisation pipeline using PyTesseract and Sentence Transformers for invoice and report analysis',
-      'Implemented YOLOv8 PPE detection system in PyTorch for real-time construction site safety compliance monitoring',
+      'Built an AI scheduling assistant on Mistral 7B wired to the Google Calendar API, removing manual appointment entries for the operations team',
+      'Automated invoice ingestion with a PyTesseract OCR and LLM summarisation pipeline, cutting per-invoice handling from 4 minutes to under 30 seconds',
+      'Deployed a YOLOv8 PPE detection system in PyTorch, flagging real-time safety non-compliance on construction sites',
+      'Shipped a production, two-portal operations platform used by active employees for attendance, payroll, and inventory tracking',
     ],
   },
   {
     period: 'June 2024 - July 2024',
-    role: 'Project Intern',
+    role: 'Project Vision Intern',
     organization: 'CSIR - National Aerospace Laboratories',
-    description: 'Designed and validated real-time object detection and tracking systems for UAV applications.',
+    description: 'Built a YOLO and VisDrone computer vision proof-of-concept performing spatial 3D object mapping from drone-mounted footage for UAV surveillance applications.',
     achievements: [
       'Designed object detection and tracking workflow for Loitering Munition UAV systems with real-time inference capability',
-      'Re-trained YOLOv8 on VisDrone Dataset with DeepSORT tracking, achieving 95% average confidence',
+      'Re-trained YOLOv8 on the VisDrone dataset with DeepSORT tracking, achieving 95% average confidence',
       'Validated model outputs on an embedded flight controller for UAV integration',
     ],
   },

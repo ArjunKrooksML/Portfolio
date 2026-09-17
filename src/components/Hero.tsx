@@ -11,11 +11,11 @@ const Hero: React.FC = () => {
 
   const typingText = useTypingAnimation({
     texts: [
-      'AI/ML Engineer',
+      'LLM/AI Engineer',
       'Computer Vision Specialist',
       'NLP Expert',
       'Agentic AI Researcher',
-      'Full-Stack Developer'
+      'RAG Pipeline Engineer'
     ],
     speed: 100,
     pauseTime: 2000
