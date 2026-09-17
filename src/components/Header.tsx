@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Menu, X, Moon, Sun, FileText } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
-const RESUME_URL = '/Resume_Arjunaa_Seshadri_AI_ML_Engineer_2026-08.pdf';
+const RESUME_URL = '/ArjunaaS_Resume.pdf';
 
 type HeaderProps = {
   isScrolled: boolean;
@@ -31,11 +31,10 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        isScrolled
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled
           ? 'glass dark:glass-dark backdrop-blur-md shadow-xl border-b border-white/20 dark:border-gray-700/30'
           : 'bg-transparent'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
