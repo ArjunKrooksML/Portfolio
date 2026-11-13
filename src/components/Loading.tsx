@@ -18,8 +18,8 @@ const Loading: React.FC<LoadingProps> = ({
 
   return (
     <div className="flex flex-col items-center justify-center p-8">
-      <Loader2 className={`${sizeClasses[size]} text-indigo-600 dark:text-indigo-400 animate-spin mb-4`} />
-      <p className="text-gray-600 dark:text-gray-300 text-sm">{message}</p>
+      <Loader2 className={`${sizeClasses[size]} text-emerald-600 dark:text-emerald-400 animate-spin mb-4`} />
+      <p className="text-zinc-600 dark:text-zinc-400 text-sm">{message}</p>
     </div>
   );
 };

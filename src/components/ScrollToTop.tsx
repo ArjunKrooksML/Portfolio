@@ -11,7 +11,7 @@ const ScrollToTop: React.FC = () => {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
-        setIsVisible(window.pageYOffset > 300);
+        setIsVisible(window.scrollY > 600);
         ticking = false;
       });
     };
@@ -20,24 +20,15 @@ const ScrollToTop: React.FC = () => {
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-
-  if (!isVisible) {
-    return null;
-  }
+  if (!isVisible) return null;
 
   return (
     <button
-      onClick={scrollToTop}
-      className="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white p-4 rounded-2xl shadow-2xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 glow-primary btn-modern group"
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      className="fixed bottom-6 right-6 z-40 rounded-xl border border-zinc-300 bg-white/80 p-3 text-zinc-700 shadow-lg backdrop-blur transition hover:border-emerald-500 hover:text-emerald-600 dark:border-zinc-700 dark:bg-zinc-900/80 dark:text-zinc-300 dark:hover:text-emerald-400"
       aria-label="Scroll to top"
     >
-      <ArrowUp className="h-6 w-6 group-hover:animate-bounce" />
+      <ArrowUp className="h-5 w-5" />
     </button>
   );
 };

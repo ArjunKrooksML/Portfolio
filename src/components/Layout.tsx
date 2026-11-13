@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { MotionConfig } from 'framer-motion';
 import Header from './Header';
 import Footer from './Footer';
 import ScrollToTop from './ScrollToTop';
@@ -32,13 +33,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-        <Analytics />
-        <Header isScrolled={isScrolled} />
-        <main className="pt-16">{children}</main>
-        <Footer />
-        <ScrollToTop />
-      </div>
+      {/* reducedMotion="user" makes every framer-motion animation respect the OS setting */}
+      <MotionConfig reducedMotion="user">
+        <div className="min-h-screen bg-zinc-50 transition-colors duration-300 dark:bg-zinc-950">
+          <Analytics />
+          <Header isScrolled={isScrolled} />
+          <main>{children}</main>
+          <Footer />
+          <ScrollToTop />
+        </div>
+      </MotionConfig>
     </ThemeProvider>
   );
 };

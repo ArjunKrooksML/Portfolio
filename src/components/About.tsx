@@ -1,85 +1,67 @@
-import React, { useRef, useEffect } from 'react';
-import { useAnimation } from '../hooks/useAnimation';
+import React from 'react';
+import { Award, GraduationCap, MapPin } from 'lucide-react';
+import { certifications, profile } from '../data';
+import { Reveal, SectionHeading } from './ui';
 import secondary from '../assets/Secondary.jpg';
 
-const About: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { animate } = useAnimation();
+const About: React.FC = () => (
+  <section id="about" className="border-t border-zinc-200 py-20 dark:border-zinc-900 md:py-28">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <SectionHeading index="04" eyebrow="About" title="The person behind the pipelines." />
 
-  useEffect(() => {
-    if (containerRef.current) {
-      animate(containerRef.current);
-    }
-  }, [animate]);
+      <div className="grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <Reveal>
+          <div className="relative mx-auto max-w-sm">
+            <div className="absolute -bottom-4 -right-4 h-full w-full rounded-2xl border border-emerald-500/40" aria-hidden />
+            <img
+              src={secondary}
+              alt="Arjunaa Seshadri"
+              loading="lazy"
+              decoding="async"
+              className="relative aspect-square w-full rounded-2xl object-cover"
+            />
+          </div>
+        </Reveal>
 
-  return (
-    <section
-      id="about"
-      ref={containerRef}
-      className="py-20 bg-white dark:bg-gray-900"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            About Me
-          </h2>
-          <div className="w-20 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto"></div>
-        </div>
+        <Reveal delay={0.1}>
+          <p className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">{profile.summary}</p>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Image Block */}
-          <div className="relative animate-slide-in-left opacity-0">
-            <div className="aspect-square w-full max-w-md mx-auto relative overflow-hidden rounded-lg shadow-xl">
-              <img
-                src={secondary}
-                alt="Secondary Photo"
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover"
-              />
+          <ul className="mt-6 flex flex-wrap gap-2" aria-label="Focus areas">
+            {profile.focus.map((f) => (
+              <li key={f} className="chip">
+                {f}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="card p-5">
+              <GraduationCap className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+              <p className="mt-3 font-semibold">M.S. in Data Science</p>
+              <p className="text-sm text-zinc-500">Stony Brook University · 2026 – 2028</p>
             </div>
-            <div className="absolute -bottom-6 -right-6 w-3/4 h-3/4 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg -z-10"></div>
+            <div className="card p-5">
+              <MapPin className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+              <p className="mt-3 font-semibold">{profile.location}</p>
+              <p className="text-sm text-zinc-500">Currently based</p>
+            </div>
           </div>
 
-          {/* Text Block */}
-          <div className="animate-slide-in-right opacity-0">
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-              <u>A Passionate AI & Machine Learning Engineer</u>
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-              I'm an LLM/AI Engineer with production experience shipping multi-agent systems, RAG pipelines, and fine-tuned models using LoRA/PEFT. My depth spans agentic orchestration with LangGraph and CrewAI, model fine-tuning and quantization with Qwen and Unsloth, and deployment as FastAPI services on AWS. I most recently worked as an AI/ML Developer at TechAhead, and I'm now pursuing a Master's in Data Science at Stony Brook University.
-            </p>
-            <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
-              I'm driven by curiosity and a commitment to pushing the boundaries of what's possible with AI. My approach combines rigorous theoretical understanding with practical implementation skills, allowing me to develop solutions that address real-world challenges.
-            </p>
-            <div className="grid grid-cols-2 gap-6 mb-8">
-              <div>
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Education</h4>
-                <p className="text-gray-700 dark:text-gray-300"><b>M.S. in Data Science</b><br />Stony Brook University</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Location</h4>
-                <p className="text-gray-700 dark:text-gray-300"><b>New York City, NY</b></p>
-              </div>
+          <div className="mt-4 card p-5">
+            <div className="flex items-center gap-2">
+              <Award className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+              <p className="font-semibold">Certifications</p>
             </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Certifications</h4>
-              <ul className="space-y-1">
-                <li className="flex items-start">
-                  <span className="inline-block w-1.5 h-1.5 bg-indigo-600 dark:bg-indigo-400 rounded-full mt-1.5 mr-2"></span>
-                  <span className="text-gray-700 dark:text-gray-300">IBM RAG and Agentic AI — IBM</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="inline-block w-1.5 h-1.5 bg-indigo-600 dark:bg-indigo-400 rounded-full mt-1.5 mr-2"></span>
-                  <span className="text-gray-700 dark:text-gray-300">Microsoft Certified: Azure AI Fundamentals</span>
-                </li>
-              </ul>
-            </div>
+            <ul className="mt-3 space-y-1 text-sm text-zinc-600 dark:text-zinc-400">
+              {certifications.map((c) => (
+                <li key={c}>{c}</li>
+              ))}
+            </ul>
           </div>
-        </div>
+        </Reveal>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default About;
