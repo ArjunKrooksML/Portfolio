@@ -132,6 +132,7 @@ export const projectsData: Project[] = [
       { value: '7', label: 'graph nodes' },
     ],
     stack: ['LangGraph', 'GPT-4o', 'FastAPI', 'Send API', 'ReAct'],
+    githubUrl: 'https://github.com/ArjunKrooksML/BloodReportAnalyser', // TODO: add repo link
   },
   {
     id: 3,
@@ -204,6 +205,7 @@ export const projectsData: Project[] = [
     ],
     stack: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL', 'Supabase'],
     image: '/svaashr.png',
+    githubUrl: '', // TODO: add repo link (private? leave empty to hide the button)
     liveUrl: 'https://admin.svaasinfra.in',
   },
 ];
