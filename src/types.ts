@@ -54,6 +54,7 @@ export interface Experience {
   location: string;
   current?: boolean;
   note?: string;
+  coursework?: string[];
   bullets?: Bullet[];
 }
 

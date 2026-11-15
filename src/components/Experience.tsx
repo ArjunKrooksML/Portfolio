@@ -61,6 +61,19 @@ const Experience: React.FC = () => {
                       </p>
                       {item.note && <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">{item.note}</p>}
 
+                      {item.coursework && (
+                        <div className="mt-4">
+                          <p className="font-mono text-xs uppercase tracking-widest text-zinc-500">Coursework</p>
+                          <ul className="mt-2 flex flex-wrap gap-2" aria-label="Coursework">
+                            {item.coursework.map((c) => (
+                              <li key={c} className="chip">
+                                {c}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
                       {item.bullets && (
                         <ul className="mt-4 space-y-3">
                           {item.bullets.map((b) => (

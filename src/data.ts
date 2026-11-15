@@ -217,6 +217,16 @@ export const experienceData: Experience[] = [
     location: 'Stony Brook, NY',
     current: true,
     note: 'Graduate study, building on production AI/ML engineering experience from TechAhead and SVAAS Inframax.',
+    coursework: [
+      'AMS 507 Probability',
+      'AMS 572 Data Analysis',
+      'CSE 582 Data Structures and Algorithms',
+    ],
+    bullets: [
+      {
+        text: 'Teaching Assistant for CSE 352 (Artificial Intelligence) students, through CSE 698 (TA-ship).',
+      },
+    ],
   },
   {
     kind: 'work',
