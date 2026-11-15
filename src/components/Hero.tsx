@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowDownRight, FileText } from 'lucide-react';
 import { profile, stats } from '../data';
 import { CountUp } from './ui';
-import PipelineGraphic from './PipelineGraphic';
+import PipelineTabs from './PipelineTabs';
 import avatar from '../assets/portfolio.jpg';
 
 const container = {
@@ -81,7 +81,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
-            <PipelineGraphic />
+            <PipelineTabs />
           </motion.div>
         </div>
 
